@@ -7,6 +7,7 @@ const devBtn = document.querySelector("#dev-btn");
 const newsBtn = document.querySelector("#news-btn");
 const videoBtn = document.querySelector("#video-btn");
 const bookList = document.querySelector("#book-list");
+const error = document.querySelector(".error");
 
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -19,7 +20,14 @@ const bookmarkData = JSON.parse(localStorage.getItem("bookmark")) || [];
 
 const addBookmark = () => {
   const nameValue = siteName.value.trim();
-  const urlValue = siteUrl.value;
+  let urlValue = siteUrl.value;
+
+  if (!urlValue.startsWith("http")) {
+    error.textContent = "Please enter a valid url link";
+    return;
+  } else {
+    error.textContent = "";
+  }
   const categoryValue = category.value;
 
   const bookmarkObj = {
@@ -48,9 +56,7 @@ const addBookmark = () => {
 
   deleteBtn.addEventListener("click", () => {
     bookmarkDiv.remove();
-    const index = bookmarkData.findIndex(
-      (b) =>
-        b.id === bookmarkObj.id);
+    const index = bookmarkData.findIndex((b) => b.id === bookmarkObj.id);
 
     if (index !== -1) {
       bookmarkData.splice(index, 1);
@@ -67,3 +73,4 @@ const addBookmark = () => {
   console.log(bookmarkObj);
   console.log(bookmarkData);
 };
+
