@@ -8,57 +8,62 @@ const newsBtn = document.querySelector("#news-btn");
 const videoBtn = document.querySelector("#video-btn");
 const bookList = document.querySelector("#book-list");
 
-const bookmarkData = JSON.parse(localStorage.getItem("bookmark")) || [];
-
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
   addBookmark();
+  siteName.value = "";
+  siteUrl.value = "";
 });
+
+const bookmarkData = JSON.parse(localStorage.getItem("bookmark")) || [];
 
 const addBookmark = () => {
   const nameValue = siteName.value.trim();
   const urlValue = siteUrl.value;
   const categoryValue = category.value;
-  const deleteBtn = document.querySelector("#delete-btn");
 
   const bookmarkObj = {
+    id: Date.now(),
     name: nameValue,
     url: urlValue,
     category: categoryValue,
   };
 
-//   const updateBookmarkList = () => {
-//     bookList.innerHTML = "";
-
-//     bookmarkData.forEach(({ name, url, category }) => {
-//       bookList.innerHTML += `
-//         <div>
-//           <p><strong>Name: </strong>${name}</p>
-//           <p><strong>URL: </strong>${url}</p>
-//           <p><strong>Category: </strong>${category}</p>
-//           <button onclick="deleteBtn()" id="delete-btn">Delete</button>
-//           </div>`;
-//     });
-//   };
-
-  bookList.innerHTML += `
-  <div>
-    <p><strong>Name: </strong>${bookmarkObj.name}</p>
-    <p><strong>URL: </strong>${bookmarkObj.url}</p>
-    <p><strong>Category: </strong>${bookmarkObj.category}</p>
-    <button onclick="deleteBtn()" id="delete-btn">Delete</button>
-    </div>`;
-
-
-  deleteBtn.addEventListener("click", () => {
-    p.remove();
-    updateStorage();
-  });
-
   bookmarkData.push(bookmarkObj);
   localStorage.setItem("bookmark", JSON.stringify(bookmarkData));
 
-//   updateBookmarkList();
+  const bookmarkDiv = document.createElement("div");
+
+  const nameP = document.createElement("p");
+  nameP.innerHTML = `<strong>Name: <strong>${bookmarkObj.name}`;
+
+  const urlP = document.createElement("p");
+  urlP.innerHTML = `<strong>Url: <strong>${bookmarkObj.url}`;
+
+  const categoryP = document.createElement("p");
+  categoryP.innerHTML = `<strong>Category: <strong>${bookmarkObj.category}`;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+
+  deleteBtn.addEventListener("click", () => {
+    bookmarkDiv.remove();
+    const index = bookmarkData.findIndex(
+      (b) =>
+        b.id === bookmarkObj.id);
+
+    if (index !== -1) {
+      bookmarkData.splice(index, 1);
+      localStorage.setItem("bookmark", JSON.stringify(bookmarkData));
+    }
+  });
+  bookmarkDiv.appendChild(nameP);
+  bookmarkDiv.appendChild(urlP);
+  bookmarkDiv.appendChild(categoryP);
+  bookmarkDiv.appendChild(deleteBtn);
+
+  bookList.appendChild(bookmarkDiv);
+
   console.log(bookmarkObj);
-  console.log(bookList);
+  console.log(bookmarkData);
 };
