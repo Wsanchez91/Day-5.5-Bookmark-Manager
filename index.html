@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Bookmark Manager</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <h1>Bookmark Manager</h1>
+    </header>
+    <form>
+      <section id="input-bookmark">
+        <div id="site-name">
+          <label for="site-name-input">Site Name:</label>
+          <input type="text" id="site-name-input" />
+        </div>
+        <div id="site-url">
+          <label for="site-url-input">Site URL:</label>
+          <input type="url" id="site-url-input" />
+        </div>
+        <div id="category">
+          <label for="category-dropdown">Category</label>
+          <select id="category-dropdown">
+            <option value="Dev" selected>Dev</option>
+            <option value="News">News</option>
+            <option value="Video">Video</option>
+          </select>
+        </div>
+        <button id="add-bookmark">Add Bookmark</button>
+      </section>
+      <section id="buttons">
+        <button id="all-btn">All</button>
+        <button id="dev-btn">Dev</button>
+        <button id="news-btn">News</button>
+        <button id="video-btn">Video</button>
+      </section>
+      <section>
+        <ul id="book-list"></ul>
+      </section>
+    </form>
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
