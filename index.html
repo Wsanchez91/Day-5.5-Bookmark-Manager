@@ -1,26 +1,35 @@
 <!DOCTYPE html>
+<!-- Document metadata section: Contains meta tags, title, and link to stylesheet -->
 <html lang="en">
+  <!-- Head section: Contains document metadata -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <title>Bookmark Manager</title>
   </head>   
+  <!-- Body section: Contains header, form, and bookmark display -->
   <body>
+    <!-- Header: Displays the main title of the bookmark manager -->
     <header>
       <h1>Bookmark Manager</h1>
     </header>
+    <!-- Form: Used to input new bookmarks and filter existing ones -->
     <form>
+      <!-- Input Section: Contains form groups for site name, URL, and category -->
       <section id="input-bookmark">
+        <!-- Form Group: Site Name input -->
         <div id="site-name">
           <label for="site-name-input">Site Name:</label>
           <input type="text" id="site-name-input" />
         </div>
+        <!-- Form Group: Site URL input and error message display -->
         <div id="site-url">
           <label for="site-url-input">Site URL:</label>
           <input type="url" id="site-url-input" />
           <span class="error"></span>
         </div>
+        <!-- Form Group: Category selection dropdown -->
         <div id="category">
           <label for="category-dropdown">Category</label>
           <select id="category-dropdown">
@@ -29,16 +38,19 @@
             <option value="Video">Video</option>
           </select>
         </div>
+        <!-- Add Button: Submits the new bookmark -->
         <button id="add-bookmark">Add Bookmark</button>
       </section>
-      <section id="buttons">
-        <button id="all-btn">All</button>
-        <button id="dev-btn">Dev</button>
-        <button id="news-btn">News</button>
-        <button id="video-btn">Video</button>
+      <!-- Filter Section: Buttons to filter bookmarks by category -->
+      <section id="filters">
+        <button type="button" id="all-btn">All</button>
+        <button type="button" id="dev-btn">Dev</button>
+        <button type="button" id="news-btn">News</button>
+        <button type="button" id="video-btn">Video</button>
       </section>
       <section>
-        <ul id="book-list"></ul>
+        <!-- Bookmark Display Container: Bookmarks are dynamically displayed here -->
+        <div id="book-list"></div>
       </section>
     </form>
     <script src="./script.js"></script>
