@@ -93,14 +93,14 @@ addBtn.addEventListener("click", (e) => {
 allBtn.addEventListener("click", () => {
   document
     .querySelectorAll("#book-list > div")
-    .forEach((bookmarkDiv) => (bookmarkDiv.style.display = "block"));
+    .forEach((bookmarkDiv) => (bookmarkDiv.style.display = "flex"));
 });
 /* Event Listener: devBtn - Filters bookmarks to show only 'Dev' category */
 devBtn.addEventListener("click", () => {
   document.querySelectorAll("#book-list > div").forEach((bookmarkDiv) => {
     const category = bookmarkDiv.getAttribute("data-category");
     bookmarkDiv.style.display =
-      category.toLowerCase() === "dev" ? "block" : "none";
+      category.toLowerCase() === "dev" ? "flex" : "none";
   });
 });
 /* Event Listener: newsBtn - Filters bookmarks to show only 'News' category */
@@ -108,7 +108,7 @@ newsBtn.addEventListener("click", () => {
   document.querySelectorAll("#book-list > div").forEach((bookmarkDiv) => {
     const category = bookmarkDiv.getAttribute("data-category");
     bookmarkDiv.style.display =
-      category.toLowerCase() === "news" ? "block" : "none";
+      category.toLowerCase() === "news" ? "flex" : "none";
   });
 });
 /* Event Listener: videoBtn - Filters bookmarks to show only 'Video' category */
@@ -116,7 +116,7 @@ videoBtn.addEventListener("click", () => {
   document.querySelectorAll("#book-list > div").forEach((bookmarkDiv) => {
     const category = bookmarkDiv.getAttribute("data-category");
     bookmarkDiv.style.display =
-      category.toLowerCase() === "video" ? "block" : "none";
+      category.toLowerCase() === "video" ? "flex" : "none";
   });
 });
 

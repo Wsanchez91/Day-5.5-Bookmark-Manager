@@ -1,0 +1,122 @@
+/* Base styling for the body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+/* Style for the header */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Container for the input section */
+#input-bookmark {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* Spacing for input groups */
+#input-bookmark div {
+  margin-bottom: 15px;
+}
+
+/* Style the labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style the text inputs and select dropdown */
+input[type="text"],
+input[type="url"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Style for the add bookmark button */
+#add-bookmark {
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Hover effect for add button */
+#add-bookmark:hover {
+  background-color: #0056b3;
+}
+
+/* Style the error message */
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+/* Filter buttons section */
+#filters {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Style for each filter button */
+#filters button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Hover effect for filter buttons */
+#filters button:hover {
+  background-color: #5a6268;
+}
+
+/* Container for all bookmarks */
+#book-list > div {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-left: 5px solid #007BFF;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Paragraphs inside bookmark cards */
+#book-list p {
+  margin: 0;
+  padding: 0 5px;
+  flex-grow: 1;
+}
+
+/* Style the delete button in each bookmark */
+#book-list button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Hover effect for delete button */
+#book-list button:hover {
+  background-color: #c82333;
+}
